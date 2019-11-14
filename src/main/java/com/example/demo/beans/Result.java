@@ -1,5 +1,8 @@
 package com.example.demo.beans;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Result {
     private String msg;
     private boolean success;
@@ -25,7 +28,13 @@ public class Result {
         this.data = data;
     }
 
-    public String toString(){
+    public String toString() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
