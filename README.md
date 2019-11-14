@@ -3,31 +3,16 @@
 #### 介绍
 做一些常用技术的demo
 
-#### 软件架构
-软件架构说明
+1.1、rabbitMq
+
+-     打开管理界面命令：rabbitmq-plugins enable rabbitmq_management
+-     停止：net stop RabbitMQ
+-     启动：net start RabbitMQ
+-     后台管理地址：http://127.0.0.1:15672/
+-     使用默认账号登录：guest/ guest
 
 
-#### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本仓库
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
 
 1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
 2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
