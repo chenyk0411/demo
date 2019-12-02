@@ -28,13 +28,11 @@ public class Result {
         this.data = data;
     }
 
-    public String toString() {
+    public String toString(boolean success,String msg,Object data) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;
+
+        Result result = new Result(success,msg,data);
+
+        return mapper.writeValueAsString(result);
     }
 }
