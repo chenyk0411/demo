@@ -1,8 +1,9 @@
 package com.example.demo.beans;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
 
+@Data
 public class Result {
     private String msg;
     private boolean success;
@@ -28,11 +29,19 @@ public class Result {
         this.data = data;
     }
 
-    public String toString(boolean success,String msg,Object data) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+    @Override
+    public String toString() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        Result result = new Result(success,msg,data);
-
-        return mapper.writeValueAsString(result);
+        return "Result{" +
+                "msg='" + msg + '\'' +
+                ", success=" + success +
+                ", data=" + data +
+                '}';
     }
 }

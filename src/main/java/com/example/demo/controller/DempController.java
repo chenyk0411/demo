@@ -26,6 +26,6 @@ public class DempController {
         message.setMessage("一号同学，我是四号同学，有内鬼，今晚交易取消，收到请回复！");
         rabbitMqService.sendMessage(message);
 
-        return new Result(false,"发送信息成功！");
+        return new Result(true,"发送信息成功！");
     }
 }
