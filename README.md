@@ -16,6 +16,10 @@
 key.#匹配.后面的任意词语,如key.abc.123,key.cde.123等
 
 
+20191202
+springboot的controller返回一个实体对象的时候，如果报No converter found for return value of type的错误，通过设置getter和setter可以解决
+
+
 
 
 1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
