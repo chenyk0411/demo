@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.ImmeEmpMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.beans.entity.ImmeEmp">
+    <constructor>
+      <idArg column="EMPNO" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="IMME_EMP_ID" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="EMPNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="JOB" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MGR" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="HIREDATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="DEPTNO" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="IS_VALID" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="AUTH" javaType="java.lang.Short" jdbcType="DECIMAL" />
+      <arg column="PWD" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMP2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMP3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMP4" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EMP5" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    EMPNO, IMME_EMP_ID, EMPNAME, JOB, MGR, HIREDATE, DEPTNO, IS_VALID, AUTH, PWD, EMAIL, 
+    EMP2, EMP3, EMP4, EMP5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from IMME_EMP
+    where EMPNO = #{empno,jdbcType=DECIMAL}
+  </select>
+  <select id="gellAll" resultType="java.lang.String"></select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from IMME_EMP
+    where EMPNO = #{empno,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.beans.entity.ImmeEmp">
+    insert into IMME_EMP (EMPNO, IMME_EMP_ID, EMPNAME, 
+      JOB, MGR, HIREDATE, 
+      DEPTNO, IS_VALID, AUTH, 
+      PWD, EMAIL, EMP2, EMP3, 
+      EMP4, EMP5)
+    values (#{empno,jdbcType=DECIMAL}, #{immeEmpId,jdbcType=DECIMAL}, #{empname,jdbcType=VARCHAR}, 
+      #{job,jdbcType=VARCHAR}, #{mgr,jdbcType=DECIMAL}, #{hiredate,jdbcType=TIMESTAMP}, 
+      #{deptno,jdbcType=DECIMAL}, #{isValid,jdbcType=CHAR}, #{auth,jdbcType=DECIMAL}, 
+      #{pwd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{emp2,jdbcType=VARCHAR}, #{emp3,jdbcType=VARCHAR}, 
+      #{emp4,jdbcType=VARCHAR}, #{emp5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.beans.entity.ImmeEmp">
+    insert into IMME_EMP
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        EMPNO,
+      </if>
+      <if test="immeEmpId != null">
+        IMME_EMP_ID,
+      </if>
+      <if test="empname != null">
+        EMPNAME,
+      </if>
+      <if test="job != null">
+        JOB,
+      </if>
+      <if test="mgr != null">
+        MGR,
+      </if>
+      <if test="hiredate != null">
+        HIREDATE,
+      </if>
+      <if test="deptno != null">
+        DEPTNO,
+      </if>
+      <if test="isValid != null">
+        IS_VALID,
+      </if>
+      <if test="auth != null">
+        AUTH,
+      </if>
+      <if test="pwd != null">
+        PWD,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="emp2 != null">
+        EMP2,
+      </if>
+      <if test="emp3 != null">
+        EMP3,
+      </if>
+      <if test="emp4 != null">
+        EMP4,
+      </if>
+      <if test="emp5 != null">
+        EMP5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empno != null">
+        #{empno,jdbcType=DECIMAL},
+      </if>
+      <if test="immeEmpId != null">
+        #{immeEmpId,jdbcType=DECIMAL},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="mgr != null">
+        #{mgr,jdbcType=DECIMAL},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptno != null">
+        #{deptno,jdbcType=DECIMAL},
+      </if>
+      <if test="isValid != null">
+        #{isValid,jdbcType=CHAR},
+      </if>
+      <if test="auth != null">
+        #{auth,jdbcType=DECIMAL},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emp2 != null">
+        #{emp2,jdbcType=VARCHAR},
+      </if>
+      <if test="emp3 != null">
+        #{emp3,jdbcType=VARCHAR},
+      </if>
+      <if test="emp4 != null">
+        #{emp4,jdbcType=VARCHAR},
+      </if>
+      <if test="emp5 != null">
+        #{emp5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.beans.entity.ImmeEmp">
+    update IMME_EMP
+    <set>
+      <if test="immeEmpId != null">
+        IMME_EMP_ID = #{immeEmpId,jdbcType=DECIMAL},
+      </if>
+      <if test="empname != null">
+        EMPNAME = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        JOB = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="mgr != null">
+        MGR = #{mgr,jdbcType=DECIMAL},
+      </if>
+      <if test="hiredate != null">
+        HIREDATE = #{hiredate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deptno != null">
+        DEPTNO = #{deptno,jdbcType=DECIMAL},
+      </if>
+      <if test="isValid != null">
+        IS_VALID = #{isValid,jdbcType=CHAR},
+      </if>
+      <if test="auth != null">
+        AUTH = #{auth,jdbcType=DECIMAL},
+      </if>
+      <if test="pwd != null">
+        PWD = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emp2 != null">
+        EMP2 = #{emp2,jdbcType=VARCHAR},
+      </if>
+      <if test="emp3 != null">
+        EMP3 = #{emp3,jdbcType=VARCHAR},
+      </if>
+      <if test="emp4 != null">
+        EMP4 = #{emp4,jdbcType=VARCHAR},
+      </if>
+      <if test="emp5 != null">
+        EMP5 = #{emp5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EMPNO = #{empno,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.beans.entity.ImmeEmp">
+    update IMME_EMP
+    set IMME_EMP_ID = #{immeEmpId,jdbcType=DECIMAL},
+      EMPNAME = #{empname,jdbcType=VARCHAR},
+      JOB = #{job,jdbcType=VARCHAR},
+      MGR = #{mgr,jdbcType=DECIMAL},
+      HIREDATE = #{hiredate,jdbcType=TIMESTAMP},
+      DEPTNO = #{deptno,jdbcType=DECIMAL},
+      IS_VALID = #{isValid,jdbcType=CHAR},
+      AUTH = #{auth,jdbcType=DECIMAL},
+      PWD = #{pwd,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      EMP2 = #{emp2,jdbcType=VARCHAR},
+      EMP3 = #{emp3,jdbcType=VARCHAR},
+      EMP4 = #{emp4,jdbcType=VARCHAR},
+      EMP5 = #{emp5,jdbcType=VARCHAR}
+    where EMPNO = #{empno,jdbcType=DECIMAL}
+  </update>
+</mapper>
