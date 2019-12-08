@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.beans.RabbitMqMessage;
 import com.example.demo.beans.Result;
+import com.example.demo.beans.entity.ImmeEmp;
+import com.example.demo.service.EmpService;
 import com.example.demo.service.RabbitMqService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -16,6 +19,9 @@ import java.util.Date;
 public class DempController {
     @Autowired
     RabbitMqService rabbitMqService;
+
+    @Autowired
+    EmpService empService;
 
     @RequestMapping("/send")
     public Result send(){
@@ -27,5 +33,12 @@ public class DempController {
         rabbitMqService.sendMessage(message);
 
         return new Result(true,"发送信息成功！");
+    }
+
+    @RequestMapping("/getAllEmp")
+    public Result getAllEmp(){
+        List<ImmeEmp> allEmps = empService.getAllEmp();
+        log.info("查询到所有的用户数量：{}",allEmps.size());
+        return new Result(true,allEmps);
     }
 }
