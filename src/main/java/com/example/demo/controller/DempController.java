@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,9 @@ public class DempController {
 
     @Autowired
     EmpService empService;
+
+    @Autowired
+    HttpServletResponse response;
 
     @RequestMapping("/send")
     public Result send(){
