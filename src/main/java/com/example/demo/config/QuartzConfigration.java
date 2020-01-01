@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @Configuration
-@Slf4j
+@Log4j2
 public class QuartzConfigration {
     @Autowired
     private DemoJobFactory demoJobFactory;

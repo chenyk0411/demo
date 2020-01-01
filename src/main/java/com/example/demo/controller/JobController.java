@@ -3,8 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.beans.JobParamDto;
 import com.example.demo.beans.Result;
 import com.example.demo.util.CommUtil;
+import com.example.demo.util.StringUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Slf4j
+@Log4j2
 @RequestMapping("/job")
 public class JobController {
     @Autowired
@@ -26,7 +27,7 @@ public class JobController {
         try {
             log.info("新增定时任务:{}",paramStr);
 
-            if(!CommUtil.isStringNotBlank(paramStr)){
+            if(!StringUtil.isNotBlank(paramStr)){
                 log.info("参数为空");
                 return new Result(false,"参数为空！");
             }

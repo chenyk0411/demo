@@ -1,11 +1,11 @@
 package com.example.demo.util;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Slf4j
+@Log4j2
 public class RabbitMqUtil {
     private String defaultRoutingKey;
     private String defaultExchange;

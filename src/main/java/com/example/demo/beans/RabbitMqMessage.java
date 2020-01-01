@@ -3,12 +3,12 @@ package com.example.demo.beans;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.Serializable;
 
 @Data
-@Slf4j
+@Log4j2
 public class RabbitMqMessage implements Serializable {
     private String meaageId;
     private String message;

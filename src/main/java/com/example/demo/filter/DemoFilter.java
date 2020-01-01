@@ -1,6 +1,6 @@
 package com.example.demo.filter;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.servlet.*;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(filterName="demoFilter",urlPatterns="/*")
-@Slf4j
+@Log4j2
 public class DemoFilter implements Filter {
     @Value("${Origin.url}")
     private String originUrl;
