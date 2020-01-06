@@ -3,7 +3,11 @@
 #### 介绍
 做一些常用技术的demo
 
-1.1、rabbitMq
+1.1、使用lombok简化代码
+
+1.2、使用mybatis插件快速跳转
+
+1.3、rabbitMq
 
 -     打开管理界面命令：rabbitmq-plugins enable rabbitmq_management
 -     停止：net stop RabbitMQ
@@ -18,6 +22,18 @@ key.#匹配.后面的任意词语,如key.abc.123,key.cde.123等
 
 20191202
 springboot的controller返回一个实体对象的时候，如果报No converter found for return value of type的错误，通过设置getter和setter可以解决
+
+20191207
+使用mybatis-generator-maven-plugin快速生成mybatis的相关文件
+
+20191208
+使用springboot集成mybatis的demo代码
+
+20191222
+使用springboot集成quartz的代码
+
+20200101
+使用javaMail发送邮件的代码实例
 
 
 
