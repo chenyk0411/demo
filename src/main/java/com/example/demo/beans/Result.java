@@ -8,6 +8,7 @@ public class Result {
     private String msg;
     private boolean success;
     private Object data;
+    private Integer code;
 
     public Result(boolean success){
         this.success = success;
@@ -16,6 +17,12 @@ public class Result {
     public Result(boolean success,String msg){
         this.success = success;
         this.msg = msg;
+    }
+
+    public Result(boolean success,String msg,Integer code){
+        this.success = success;
+        this.msg = msg;
+        this.code = code;
     }
 
     public Result(boolean success,Object data){
